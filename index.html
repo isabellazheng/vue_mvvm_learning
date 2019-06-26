@@ -1,0 +1,28 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html;"/>
+    <meta charset="UTF-8"/>
+    <script src="./observer.js"></script>
+
+    <script src="./mvvm.js"></script>
+    <titile>Vue双向绑定</titile>
+</head>
+
+
+<body>
+    他的名字叫<input type="text" placeholder="input值改变,span里的值也会改变" v-model="content"/>
+    <span>他的名字叫{{content}}</span>
+</body>
+
+<script>
+    //初始化mvvm实例
+    var options={
+        data:{
+           content:'LiLei'
+        },
+    }
+    vm=new Mvvm(options)
+    //测试是否可检测,控制台 vm.data.content='John',不可直接写在代码里哦,因为有异步问题??
+
+    //测试input数据变化,script里变量是否变化,或者对应的watch里数据是否变化
+    //测试script里改变变量, html某节点对应的数据是否变化;vm.name="John"
+</script>
