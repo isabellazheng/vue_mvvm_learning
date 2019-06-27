@@ -2,7 +2,7 @@
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8"/>
     <script src="./observer.js"></script>
-
+    <script src="./watcher.js"></script>
     <script src="./mvvm.js"></script>
     <titile>Vue双向绑定</titile>
 </head>
@@ -21,8 +21,18 @@
         },
     }
     vm=new Mvvm(options)
-    //测试是否可检测,控制台 vm.data.content='John',不可直接写在代码里哦,因为有异步问题??
+    //Test1:测试是否可检测,控制台 vm.data.content='John',不可直接写在代码里哦,因为有异步问题??
 
-    //测试input数据变化,script里变量是否变化,或者对应的watch里数据是否变化
-    //测试script里改变变量, html某节点对应的数据是否变化;vm.name="John"
+    //Test2:
+     //注册一个callback函数到content变量上。content变化后,看callback是否执行。
+    function contentChangeCb(oldVal,newVal){
+        console.log(this)
+        console.log("content1's oldVal:"+oldVal+',newVal:'+newVal);
+    }
+
+    var watcher=new Watcher(vm,"content",contentChangeCb)
+    vm.data.content='John1'
+    vm.data.content='John2'
+
+
 </script>
