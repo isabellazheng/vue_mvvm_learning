@@ -21,7 +21,6 @@ function defineReactive(obj,key,val){
             set:function(newVal){
                 var oldVal=val;
                 if(oldVal!=newVal){
-                    console.log('新的'+key+':'+newVal)
                     val=newVal;
                     //通知订阅者
                     dep.notify();

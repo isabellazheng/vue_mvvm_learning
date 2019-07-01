@@ -10,7 +10,7 @@
 
 
 <body>
-<div id="root"><input type="text" placeholder="input值改变,span里的值也会改变" v-model="content"/><span>{{content}}</span></div>
+<div id="root"><input type="text" placeholder="input值改变,span里的值也会改变" v-model="content"/><span v-text="content"></span></div>
 </body>
 
 <script>
